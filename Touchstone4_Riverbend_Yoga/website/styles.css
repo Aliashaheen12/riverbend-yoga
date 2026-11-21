@@ -308,3 +308,6 @@ textarea {
 @media (min-width: 1024px) {
   .class-card { flex: 1 1 calc(33.333% - var(--space)); }
 }
+
+/* Keep the saved-class banner hidden until JavaScript fills it in */
+.saved-banner[hidden] { display: none; }
