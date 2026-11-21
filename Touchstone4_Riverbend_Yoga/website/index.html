@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riverbend Yoga Studio | Home</title>
+  <meta name="description" content="Riverbend Yoga Studio offers calm, beginner-friendly yoga classes for busy professionals and older adults.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo.svg" alt="Riverbend Yoga Studio logo" width="48" height="48">
+        <span>Riverbend Yoga Studio</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="services.html">Classes &amp; Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="events.html">Events</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <picture>
+        <source media="(min-width: 768px)" srcset="images/featured-wide.svg">
+        <img src="images/featured-small.svg" alt="Students resting on mats in the sunlit Riverbend studio during a gentle class" width="800" height="800">
+      </picture>
+      <div class="hero-text">
+        <h1>Breathe, Move, and Feel at Home</h1>
+        <p>Riverbend Yoga Studio is a calm, welcoming space where every body belongs. Our mission is to make yoga simple, supportive, and accessible at any age or experience level.</p>
+        <a class="button" href="services.html">Find Your Class</a>
+      </div>
+    </section>
+
+    <!-- Filled in by JavaScript when the visitor has saved a preferred class (localStorage) -->
+    <section id="saved-class-banner" class="saved-banner" aria-live="polite" hidden></section>
+
+    <div class="content">
+      <section class="card-row">
+        <article class="card">
+          <h2>New to Yoga? You Are in the Right Place</h2>
+          <p>You do not need to be flexible or fit to start. Our instructors offer options for every pose, provide chairs and props, and keep class sizes small so you always get personal attention.</p>
+        </article>
+
+        <article class="card featured">
+          <h2>Featured Class: Gentle Flow</h2>
+          <p>A slow-paced class that builds strength and balance with plenty of rest. Perfect for beginners, older adults, and anyone easing back into movement.</p>
+          <p><strong>Tuesdays &amp; Thursdays, 10:00 AM</strong></p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Weekly Schedule Overview</h2>
+        <table class="schedule">
+          <caption>Regular weekly classes</caption>
+          <thead>
+            <tr><th scope="col">Day</th><th scope="col">Morning</th><th scope="col">Evening</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Monday</th><td>Vinyasa 7:00 AM</td><td>Restorative 6:30 PM</td></tr>
+            <tr><th scope="row">Tuesday</th><td>Gentle Flow 10:00 AM</td><td>Vinyasa 5:30 PM</td></tr>
+            <tr><th scope="row">Wednesday</th><td>Chair Yoga 11:00 AM</td><td>Yin &amp; Restore 7:00 PM</td></tr>
+            <tr><th scope="row">Thursday</th><td>Gentle Flow 10:00 AM</td><td>Lunchtime Express 12:15 PM</td></tr>
+            <tr><th scope="row">Saturday</th><td>Beginner Basics 9:00 AM</td><td>&mdash;</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>Try a Guided Breathing Break</h2>
+        <p>Take one minute to slow down with this short breathing practice from our lead instructor.</p>
+        <audio controls preload="none">
+          <source src="media/guided-breathing.mp3" type="audio/mpeg">
+          Your browser does not support the audio element. Transcript: Sit comfortably, close your eyes, and breathe in slowly for four counts, hold for four, and breathe out for six. Repeat five times.
+        </audio>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Riverbend Yoga Studio &middot; 214 River Road &middot; (555) 014-2290</p>
+    <p>&copy; 2026 Riverbend Yoga Studio</p>
+  </footer>
+</body>
+</html>

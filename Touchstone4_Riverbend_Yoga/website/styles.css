@@ -1,0 +1,310 @@
+/* =========================================================
+   Riverbend Yoga Studio - styles.css
+   Mobile-first. Palette (4 colors):
+     Sage green  #3F5E45  - brand, header, buttons
+     Warm cream  #F7F4EC  - page background
+     Charcoal    #2B2B2B  - body text
+     Clay        #A4532E  - accents, focus, error messages
+   Fonts (2): Lora (headings), Open Sans (body)
+   ========================================================= */
+
+:root {
+  --sage: #3F5E45;
+  --cream: #F7F4EC;
+  --charcoal: #2B2B2B;
+  --clay: #A4532E;
+  --white: #FFFFFF;
+  --radius: 10px;
+  --space: 1rem;
+  --font-heading: "Lora", Georgia, serif;
+  --font-body: "Open Sans", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--charcoal);
+  background: var(--cream);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--sage);
+  line-height: 1.25;
+  margin: 0 0 0.5em;
+}
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; margin-top: 1.5em; }
+h3 { font-size: 1.2rem; }
+
+a { color: var(--sage); }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--clay);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  background: var(--sage);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+}
+.skip-link:focus { left: 1rem; top: 1rem; z-index: 10; }
+
+/* ---------- Header & navigation ---------- */
+.site-header { background: var(--sage); color: var(--white); }
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: var(--space);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--white);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+}
+.brand img { border-radius: 50%; border: 2px solid var(--cream); }
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-list a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.35rem 0;
+  border-bottom: 2px solid transparent;
+}
+.nav-list a:hover,
+.nav-list a[aria-current="page"] { border-bottom-color: var(--cream); font-weight: 600; }
+
+/* ---------- Layout ---------- */
+.content { max-width: 1100px; margin: 0 auto; padding: 1.5rem var(--space) 3rem; }
+.lead { font-size: 1.15rem; max-width: 65ch; }
+
+.hero { position: relative; background: var(--sage); }
+.hero img { width: 100%; max-height: 520px; object-fit: cover; opacity: 0.55; }
+.hero-text { padding: 1.5rem var(--space); background: var(--sage); color: var(--white); }
+.hero-text h1 { color: var(--white); }
+
+.card-row { display: flex; flex-direction: column; gap: var(--space); }
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: 0 2px 8px rgba(43, 43, 43, 0.08);
+}
+.card h2:first-child,
+.card h3:first-child { margin-top: 0; }
+.card.featured { border-top: 5px solid var(--clay); }
+.content > .card,
+.content > section.card { margin-top: 1.5rem; }
+
+.button {
+  display: inline-block;
+  background: var(--sage);
+  color: var(--white);
+  border: 2px solid var(--sage);
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  font: 600 1rem var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+}
+.hero .button { background: var(--cream); color: var(--sage); border-color: var(--cream); }
+.button:hover { background: var(--white); color: var(--sage); }
+.button.secondary { background: transparent; color: var(--sage); }
+.button.secondary:hover { background: var(--sage); color: var(--white); }
+
+/* ---------- Tables ---------- */
+.schedule { width: 100%; border-collapse: collapse; background: var(--white); border-radius: var(--radius); overflow: hidden; font-size: 0.95rem; }
+.schedule caption { text-align: left; font-style: italic; padding-bottom: 0.5rem; }
+.schedule th, .schedule td { padding: 0.6rem; text-align: left; border-bottom: 1px solid var(--cream); }
+.schedule thead th { background: var(--sage); color: var(--white); }
+
+/* ---------- Media ---------- */
+audio { width: 100%; margin-top: 0.5rem; }
+.wide-img { border-radius: var(--radius); margin: 1rem 0; }
+figure { margin: 1.5rem 0; }
+figcaption { font-style: italic; padding-top: 0.5rem; }
+.workshop-figure img { border-radius: var(--radius); }
+.instructor img { border-radius: var(--radius); margin-bottom: 0.75rem; }
+
+.check-list { list-style: none; padding: 0; }
+.check-list li::before { content: "\2713  "; color: var(--sage); font-weight: 700; }
+
+/* ---------- Saved class banner (JS + localStorage) ---------- */
+.saved-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: min(calc(1100px - 2rem), calc(100% - 2rem));
+  margin: 1.5rem auto 0;
+  padding: 1rem 1.25rem;
+  background: var(--white);
+  border-left: 6px solid var(--clay);
+  border-radius: var(--radius);
+}
+.saved-banner p { margin: 0; }
+.content-wrap-banner { padding: 0 var(--space); }
+
+/* ---------- Class finder (Touchstone 4 feature) ---------- */
+.class-finder { background: var(--white); border-radius: var(--radius); padding: 1.25rem; margin-top: 1.5rem; }
+.class-finder h2 { margin-top: 0; }
+.finder-controls { display: flex; flex-direction: column; gap: 1rem; }
+.filter-group { border: none; padding: 0; margin: 0; }
+.filter-group legend,
+.filter-group label { font-weight: 600; display: block; margin-bottom: 0.4rem; }
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip {
+  font: 600 0.95rem var(--font-body);
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 2px solid var(--sage);
+  background: var(--white);
+  color: var(--sage);
+  cursor: pointer;
+}
+.chip[aria-pressed="true"] { background: var(--sage); color: var(--white); }
+.finder-status { font-style: italic; margin: 1rem 0 0.5rem; }
+
+.class-grid { display: flex; flex-direction: column; gap: var(--space); }
+.class-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem;
+  border: 2px solid var(--cream);
+  border-radius: var(--radius);
+  background: var(--cream);
+}
+.class-card h3 { margin: 0; }
+.class-card p { margin: 0; }
+.class-meta { font-size: 0.9rem; font-weight: 600; }
+.class-card.is-saved { border-color: var(--clay); background: var(--white); }
+.saved-tag { color: var(--clay); font-weight: 700; font-size: 0.9rem; }
+.class-card .button { align-self: flex-start; margin-top: 0.5rem; padding: 0.5rem 1.1rem; }
+
+/* ---------- Workshops ---------- */
+.workshop-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: var(--space); }
+.workshop-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  border-left: 6px solid var(--sage);
+}
+.workshop-item.is-interested { border-left-color: var(--clay); }
+.workshop-item h3 { margin: 0; }
+.workshop-item p { margin: 0; }
+.workshop-item .button { align-self: flex-start; padding: 0.5rem 1.1rem; }
+.interest-summary { font-weight: 600; }
+
+/* ---------- Form ---------- */
+.form-section { margin-top: 2rem; }
+form fieldset {
+  border: 1px solid #d8d2c4;
+  border-radius: var(--radius);
+  background: var(--white);
+  padding: 1rem 1.25rem;
+  margin: 0 0 1.25rem;
+}
+form legend { font-family: var(--font-heading); font-weight: 600; color: var(--sage); padding: 0 0.4rem; }
+.form-field { margin-bottom: 1rem; }
+.form-field label { display: block; font-weight: 600; margin-bottom: 0.3rem; }
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  font: inherit;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid #b9b3a5;
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--charcoal);
+}
+.radio-group { border: none; padding: 0; margin: 0 0 1rem; background: transparent; }
+.radio-group legend { font-family: var(--font-body); color: var(--charcoal); padding: 0; margin-bottom: 0.3rem; }
+.radio-group label,
+.checkbox-label { display: block; margin: 0.25rem 0; cursor: pointer; }
+.field-hint { font-size: 0.9rem; margin: 0.3rem 0 0; }
+
+/* Validation states (set by script.js) */
+.error-message { color: var(--clay); font-weight: 600; font-size: 0.95rem; margin: 0.3rem 0 0; min-height: 0; }
+.error-message:not(:empty)::before { content: "\26A0  "; }
+[aria-invalid="true"] { border-color: var(--clay) !important; background: #fbf1ec; }
+.is-valid { border-color: var(--sage) !important; }
+
+.form-success {
+  background: var(--sage);
+  color: var(--white);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--charcoal); color: var(--cream); text-align: center; padding: 1.5rem var(--space); font-size: 0.95rem; }
+.site-footer p { margin: 0.25rem 0; }
+
+/* =========================================================
+   Larger screens (tablet and up)
+   ========================================================= */
+@media (min-width: 768px) {
+  h1 { font-size: 2.6rem; }
+
+  .header-inner { flex-direction: row; justify-content: space-between; align-items: center; }
+
+  .hero { display: flex; align-items: stretch; }
+  .hero picture { flex: 1 1 60%; }
+  .hero img { height: 100%; opacity: 0.7; }
+  .hero-text { flex: 1 1 40%; display: flex; flex-direction: column; justify-content: center; padding: 2.5rem; }
+  .hero-text .button { align-self: flex-start; }
+
+  .card-row { flex-direction: row; }
+  .card-row > .card { flex: 1; }
+
+  .saved-banner { flex-direction: row; align-items: center; justify-content: space-between; }
+
+  .finder-controls { flex-direction: row; align-items: flex-end; gap: 2rem; }
+  .filter-group select { min-width: 200px; }
+
+  .class-grid { flex-direction: row; flex-wrap: wrap; }
+  .class-card { flex: 1 1 calc(50% - var(--space)); }
+
+  .workshop-item { flex-direction: row; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  .workshop-item .button { align-self: center; flex-shrink: 0; }
+
+  .workshop-figure { max-width: 700px; }
+}
+
+@media (min-width: 1024px) {
+  .class-card { flex: 1 1 calc(33.333% - var(--space)); }
+}
