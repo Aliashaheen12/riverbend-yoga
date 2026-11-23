@@ -106,7 +106,7 @@ textarea:focus-visible {
 .lead { font-size: 1.15rem; max-width: 65ch; }
 
 .hero { position: relative; background: var(--sage); }
-.hero img { width: 100%; max-height: 520px; object-fit: cover; opacity: 0.55; }
+.hero img { width: 100%; max-height: 520px; object-fit: cover; }
 .hero-text { padding: 1.5rem var(--space); background: var(--sage); color: var(--white); }
 .hero-text h1 { color: var(--white); }
 
@@ -284,7 +284,7 @@ textarea {
 
   .hero { display: flex; align-items: stretch; }
   .hero picture { flex: 1 1 60%; }
-  .hero img { height: 100%; opacity: 0.7; }
+  .hero img { height: 100%; }
   .hero-text { flex: 1 1 40%; display: flex; flex-direction: column; justify-content: center; padding: 2.5rem; }
   .hero-text .button { align-self: flex-start; }
 
